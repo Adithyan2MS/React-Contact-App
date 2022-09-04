@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "id": "0f1d587a-900c-42f3-8a95-c940732743fa",
+      "name": "John Doe",
+      "email": "john@gmail.com"
+    },
+    {
+      "id": "d9db5343-5c27-48fc-915a-ba2c6d3e7cf0",
+      "name": "Krishna P",
+      "email": "kilnl@gmail.com"
+    },
+    {
+      "id": "a2d4998d-ea5b-45f6-b909-b05436383292",
+      "name": "Billy Butcher",
+      "email": "billybutcher@gmail.com"
+    }
+  ]
+}
