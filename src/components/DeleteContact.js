@@ -1,8 +1,14 @@
 import React from "react";
 import {Link} from 'react-router-dom'
 import {useLocation} from 'react-router-dom'
+import { useContactsCurd } from "../context/ContactsCurdContext";
 
- const DeleteContact = (props) =>{
+ const DeleteContact = () =>{
+     const {removeContact} = useContactsCurd()
+     const deleteContact=(id)=>{
+        removeContact(id)
+    }
+
      const location = useLocation()
      const data = location.state.contact
      return (
@@ -13,9 +19,11 @@ import {useLocation} from 'react-router-dom'
                 </div>
                 
                 <div className="d-flex justify-content-center">
-                    <div className="dltbtn p-2 d-inline">
-                        <button className="ui button blue">DELETE</button>
-                    </div>
+                    <Link to="/" className="p-2">
+                        <div className="dltbtn p-2 d-inline">
+                            <button className="ui button blue" onClick={()=> deleteContact(data.id)}>DELETE</button>
+                        </div>
+                    </Link>
                     <Link to="/" className="p-2">
                         <div className="cancelbtn d-inline">
                             <button className="ui button blue">CANCEL</button>

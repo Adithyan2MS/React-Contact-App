@@ -3,9 +3,10 @@ import user from "../images/user-icon.png"
 import { Link } from 'react-router-dom'
 
 const ContactCard = (props) => {
+
     const { id, name, email } = props.contact
     const contact = props.contact
-    //  console.log(contact);
+
     return (
         <div className="item d-flex ">
             <div className="d-inline">
@@ -29,15 +30,11 @@ const ContactCard = (props) => {
                 </Link>
                 </div>  
                 <div>
-                    <i className="trash outline icon " style={{ color: "red", marginTop: "7px",transform:"scale(1.5)" }}
-                    onClick={() => props.clickHandler(id)}></i>
+                    <Link to={`/delete/${id}`} state={{contact:contact}}>
+                        <i className="trash alternate outline icon" style={{color:"red",marginTop:"7px",transform:"scale(1.5)"}} ></i>
+                    </Link>
                 </div>
             </div>
-
-
-            {/* <Link to={`/delete/${id}`} state={{contact:contact}}>
-                    <i className="trash alternate outline icon" style={{color:"red",marginTop:"7px"}} ></i>
-                </Link> */}
         </div>
     )
 }

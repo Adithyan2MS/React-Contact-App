@@ -1,7 +1,9 @@
 import React,{useState} from "react";
 import {useNavigate} from 'react-router-dom'
+import { useContactsCurd } from "../context/ContactsCurdContext";
 
-const AddContact =(props)=>{
+const AddContact =()=>{
+    const {AddContactHandler} = useContactsCurd()
     const navigate = useNavigate();
     const [name,setName] = useState("")
     const [email,setEmail] = useState("")
@@ -10,15 +12,11 @@ const AddContact =(props)=>{
     const add = (e)=>{
         
         e.preventDefault()
-        const state = {
-            name:name,
-            email:email
-        }
-        if(state.name == "" || state.email == ""){
+        if(name == "" || email == ""){
             alert("All the fields Mandantory")
             return;
         }
-        props.AddContactHandler(state)
+        AddContactHandler({name,email})
         setName("")
         setEmail("")
         navigate(-1)

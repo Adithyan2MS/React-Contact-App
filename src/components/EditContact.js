@@ -1,7 +1,9 @@
 import React,{useState} from "react";
 import {useLocation,useNavigate} from 'react-router-dom'
+import { useContactsCurd } from "../context/ContactsCurdContext";
 
-const EditContact =(props)=>{
+const EditContact =()=>{
+    const {UpdateContactHandler} = useContactsCurd()
     const location = useLocation();
     const navigate = useNavigate();
     const {id,name,email} = location.state.contact
@@ -9,17 +11,13 @@ const EditContact =(props)=>{
     const [newEmail,setNewEmail] = useState(email)
     
     const update = (e)=>{
-        const state={
-            id:id,
-            name:newName,
-            email:newEmail
-        }
+
         e.preventDefault()
         if(newName == "" || newEmail == ""){
             alert("All the fields Mandantory")
             return;
         }
-        props.UpdateContactHandler(state)
+        UpdateContactHandler({id,name:newName,email:newEmail})
         setNewName("")
         setNewEmail("")
         navigate(-1)

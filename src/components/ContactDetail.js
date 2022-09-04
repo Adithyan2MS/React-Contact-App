@@ -3,7 +3,7 @@ import user from "../images/user-icon.png"
 import {Link} from 'react-router-dom'
 import {useLocation} from 'react-router-dom'
 
- const ContactDetail = (props) =>{
+ const ContactDetail = () =>{
      const location = useLocation()
      const data = location.state.contact
      console.log(data);
